@@ -1,6 +1,6 @@
 import NotesClient from "./Notes.client";
 import { fetchNotes } from "@/lib/api";
-import type { NotesResponse } from "@/types/api";
+import type { NotesResponse } from "@/src/types/api";
 
 export default async function NotesPage() {
   const perPage = 12;
