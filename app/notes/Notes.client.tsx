@@ -6,7 +6,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useDebounce } from "use-debounce";
 
 import NoteList from "@/components/NoteList/NoteList";
-import NoteModal from "@/components/NoteModal/NoteModal";
+import Modal from "@/components/Modal/Modal";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import type { NotesResponse } from "@/types/api";
@@ -65,7 +65,7 @@ export default function NotesClient({
       </header>
       {data && <NoteList notes={data.notes} />}
       {isModalOpen && (
-        <NoteModal onClose={closeModal} onSuccess={closeModal} />
+        <Modal onClose={closeModal} onSuccess={closeModal} />
       )}
     </div>
   );
