@@ -5,14 +5,12 @@ import { useParams } from "next/navigation";
 import { fetchNoteById } from "@/lib/api";
 import css from "./NoteDetails.module.css";
 
-
-export default function NoteDetailsClient () {
+export default function NoteDetailsClient() {
   const { id } = useParams<{ id: string }>();
-  const noteId = Number(id);
 
   const { data: note, isLoading, error } = useQuery({
-    queryKey: ["note", noteId],
-    queryFn: () => fetchNoteById(noteId),
+    queryKey: ["note", id],
+    queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
   });
 
@@ -32,4 +30,3 @@ export default function NoteDetailsClient () {
     </div>
   );
 }
-

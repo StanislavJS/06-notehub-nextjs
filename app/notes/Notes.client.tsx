@@ -11,6 +11,9 @@ import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import type { NotesResponse } from "@/types/api";
 import css from "./NotesPage.module.css";
+import NoteForm from "@/components/NoteForm/NoteForm";
+
+
 
 
 type NotesClientProps = {
@@ -64,9 +67,11 @@ export default function NotesClient({
         </button>
       </header>
       {data && <NoteList notes={data.notes} />}
-      {isModalOpen && (
-        <Modal onClose={closeModal} onSuccess={closeModal} />
-      )}
+{isModalOpen && (
+  <Modal onClose={closeModal}>
+    <NoteForm onClose={closeModal} />
+  </Modal>
+)}
     </div>
   );
 }

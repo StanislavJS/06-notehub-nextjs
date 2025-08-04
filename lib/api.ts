@@ -16,8 +16,8 @@ const noteServiceClient = axios.create({
 });
 
 interface FetchNotesResponse {
-    notes: Note[];
-    totalPages: number;
+  notes: Note[];
+  totalPages: number;
 }
 
 export const fetchNotes = async (
@@ -32,24 +32,19 @@ export const fetchNotes = async (
   return res.data;
 };
 
-export interface FetchNotesParams {
-  page?: number;
-  search?: string;
-  perPage?: number;
-}
-
 export const createNote = async (noteData: NewNoteData): Promise<Note> => {
   const res = await noteServiceClient.post<Note>('/', noteData);
   return res.data;
 };
 
-export const deleteNote = async (noteId: number): Promise<Note> => {
+//noteId тип string
+export const deleteNote = async (noteId: string): Promise<Note> => {
   const res = await noteServiceClient.delete<Note>(`/${noteId}`);
   return res.data;
 };
 
-export const fetchNoteById = async (id: number): Promise<Note> => {
+//id тип string
+export const fetchNoteById = async (id: string): Promise<Note> => {
   const res = await noteServiceClient.get<Note>(`/${id}`);
   return res.data;
 };
-
